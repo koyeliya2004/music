@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoodTunes 🎵 - Music Based on Your Mood</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-animation"></div>
+
+  <header>
+    <div class="logo">🎵 MoodTunes</div>
+    <p class="tagline">Let your face choose the music</p>
+  </header>
+
+  <main>
+    <!-- Step 1: Camera -->
+    <section class="card" id="cameraSection">
+      <h2>📸 Show Your Face</h2>
+      <p>We'll detect your mood and recommend songs!</p>
+
+      <div class="video-wrapper">
+        <video id="video" autoplay playsinline></video>
+        <canvas id="canvas" style="display:none"></canvas>
+        <div class="video-overlay" id="videoOverlay">
+          <span>🎭</span>
+          <p>Camera loading...</p>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-primary" id="startBtn" onclick="startCamera()">📷 Start Camera</button>
+        <button class="btn btn-detect" id="detectBtn" onclick="detectEmotion()" style="display:none">🔍 Detect My Mood</button>
+      </div>
+    </section>
+
+    <!-- Step 2: Loading -->
+    <section class="card hidden" id="loadingSection">
+      <div class="loader"></div>
+      <h3>Analyzing your mood...</h3>
+      <p>Our AI is reading your emotions 🤖</p>
+    </section>
+
+    <!-- Step 3: Results -->
+    <section class="card hidden" id="resultSection">
+      <div class="mood-badge" id="moodBadge"></div>
+      <h2>Your Mood Playlist 🎶</h2>
+      <div class="emotion-bars" id="emotionBars"></div>
+      <div class="songs-grid" id="songsGrid"></div>
+      <button class="btn btn-primary" onclick="resetApp()">🔄 Try Again</button>
+    </section>
+
+    <!-- Error -->
+    <section class="card hidden" id="errorSection">
+      <div class="error-icon">😕</div>
+      <h3>Oops!</h3>
+      <p id="errorMsg">Something went wrong.</p>
+      <button class="btn btn-primary" onclick="resetApp()">Try Again</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with 💜 by Koyeliya Ghosh &nbsp;|&nbsp; Powered by DeepFace AI</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
